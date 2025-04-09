@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+    "streetsidesoftware.code-spell-checker",
+    "bradlc.vscode-tailwindcss",
+    "ms-typescript-vscode.typescript-javascript-grammar",
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.path-intellisense",
+    "csstools.postcss",
+    "mikestead.dotenv",
+    "dsznajder.es7-react-js-snippets"
+  ]
+}

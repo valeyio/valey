@@ -1,0 +1,56 @@
+{
+  "name": "valey",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 9000 -H 0.0.0.0",
+    "build": "next build",
+    "export": "next build && npx serve out -p 9000",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit",
+    "docker:dev": "docker-compose up -d",
+    "docker:logs": "docker-compose logs -f",
+    "docker:build": "docker-compose build --no-cache",
+    "docker:restart": "docker-compose down && docker-compose up -d",
+    "docker:stop": "docker-compose down"
+  },
+  "dependencies": {
+    "@calcom/embed-react": "^1.5.2",
+    "@radix-ui/react-dialog": "^1.1.7",
+    "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@supabase/supabase-js": "^2.39.7",
+    "@supabase/ssr": "^0.1.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.6.3",
+    "lucide-react": "^0.487.0",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "serve": "^14.2.4",
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "kill-port": "^2.0.1",
+    "postcss": "^8.4.35",
+    "prettier": "latest",
+    "prettier-plugin-tailwindcss": "latest",
+    "typescript": "latest"
+  },
+  "resolutions": {
+    "@supabase/supabase-js": "^2.39.7"
+  }
+}

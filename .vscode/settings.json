@@ -1,0 +1,73 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#ffcb05",
+    "statusBar.foreground": "#000000",
+    "statusBarItem.hoverBackground": "#e6b504"
+  },
+  "workbench.startupEditor": "none",
+  "files.associations": {
+    "Dockerfile": "dockerfile",
+    "docker-compose.yml": "dockercompose"
+  },
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/dist": true,
+    "**/coverage": true,
+    ".next": true
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "todo-tree.general.tags": ["BUG", "HACK", "FIXME", "TODO", "NOTE"],
+  "todo-tree.highlights.defaultHighlight": {
+    "foreground": "white",
+    "background": "#ffcb05",
+    "icon": "check",
+    "rulerColour": "#ffcb05",
+    "type": "tag"
+  },
+  // Docker specific settings
+  "docker.commands.run": "${containerCommand} run --rm -d ${exposedPorts} ${tag}",
+  "docker.commands.attach": "${containerCommand} exec -it ${containerId} bash",
+  "remote.containers.defaultExtensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "ms-azuretools.vscode-docker"
+  ],
+  // Recommended tasks
+  "workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+  },
+  // Hint for developers about Docker workflow
+  "workbench.welcomePage.action.showStartupTips": true,
+  "terminal.integrated.env.osx": {
+    "DEVELOPMENT_ENVIRONMENT": "Docker"
+  },
+  "terminal.integrated.env.linux": {
+    "DEVELOPMENT_ENVIRONMENT": "Docker"
+  },
+  "terminal.integrated.env.windows": {
+    "DEVELOPMENT_ENVIRONMENT": "Docker"
+  }
+}

@@ -1,12 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import DashboardLayout from '@/components/layout/DashboardLayout'
-import OverviewStats from '@/components/dashboard/OverviewStats'
-import QuoteCarousel from '@/components/dashboard/QuoteCarousel'
-import AskValeyAI from '@/components/dashboard/AskValeyAI'
 import { useAuth } from '@/lib/AuthContext'
 
-export default function DashboardHome() {
+export default function TeamPage() {
   const { user, profile, isLoading } = useAuth()
   const router = useRouter()
 
@@ -37,27 +34,18 @@ export default function DashboardHome() {
 
   return (
     <DashboardLayout userName={firstName}>
-      <div className="space-y-8">
-        {/* Welcome Section */}
+      <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">
-            Welcome back, {firstName} 👋
-          </h1>
+          <h1 className="text-3xl font-bold text-foreground">Team</h1>
           <p className="mt-2 text-muted-foreground">
-            Here's what's happening today
+            Manage your team members and permissions
           </p>
         </div>
 
-        {/* Stats Cards */}
-        <OverviewStats />
-
-        {/* Two Column Layout */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {/* Quote Carousel */}
-          <QuoteCarousel />
-
-          {/* Ask Valey AI */}
-          <AskValeyAI />
+        <div className="rounded-lg border bg-card p-6 shadow-md">
+          <p className="text-muted-foreground">
+            Team management functionality coming soon...
+          </p>
         </div>
       </div>
     </DashboardLayout>

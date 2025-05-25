@@ -106,33 +106,9 @@ export function Onboarding({
       } else if (currentStep === 2) {
         handleNext()
       } else if (currentStep === 3) {
-        try {
-          setIsLoading(true)
-          // Extract first and last name
-          const nameParts = formData.fullName.split(' ')
-          const firstName = nameParts[0]
-          const lastName =
-            nameParts.length > 1 ? nameParts.slice(1).join(' ') : ''
-
-          const { error } = await signUp(
-            formData.email,
-            formData.password,
-            firstName,
-            lastName
-          )
-
-          if (error) {
-            throw error
-          }
-
-          // Redirect to dashboard on successful signup
-          router.push('/dashboard/app')
-          onClose()
-        } catch (error: any) {
-          setErrorMessage(error.message || 'An error occurred during signup')
-        } finally {
-          setIsLoading(false)
-        }
+        // For now, we just keep the form open with the calendar
+        // Actual signup will be handled later
+        console.log('Form data collected:', formData)
       }
     } else {
       // Handle login form submission
@@ -198,31 +174,11 @@ export function Onboarding({
                 required
               />
             </div>
-            <div className="mb-6">
-              <label
-                htmlFor="password"
-                className="mb-2 block text-sm font-medium"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                className="w-full rounded-md border border-gray-300 p-3 shadow-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
-                required
-                minLength={6}
-              />
-            </div>
             <Button
               variant="brand"
               className="w-full py-6"
               onClick={handleNext}
-              disabled={
-                !formData.fullName || !formData.email || !formData.password
-              }
+              disabled={!formData.fullName || !formData.email}
             >
               Get Started
             </Button>
@@ -269,7 +225,7 @@ export function Onboarding({
                   them on.
                 </option>
                 <option value="somewhat">
-                  I have a rough idea, but need help mapping it out
+                  I have a rough idea, but need help mapping it out.
                 </option>
                 <option value="unclear">
                   Not sure yet. I could use some help figuring that out.
@@ -283,29 +239,39 @@ export function Onboarding({
               >
                 How did you hear about us?
               </label>
-              <select
+              <input
+                type="text"
                 id="referralSource"
                 name="referralSource"
                 value={formData.referralSource}
                 onChange={handleInputChange}
                 className="w-full rounded-md border border-gray-300 p-3 shadow-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
+              />
+            </div>
+            <div className="mb-5">
+              <label
+                htmlFor="phoneNumber"
+                className="mb-2 block text-sm font-medium"
               >
-                <option value="">Select an option</option>
-                <option value="google">Google Search</option>
-                <option value="friend">Friend or Colleague</option>
-                <option value="podcast">Podcast</option>
-                <option value="social">Social Media</option>
-                <option value="other">Other</option>
-              </select>
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleInputChange}
+                className="w-full rounded-md border border-gray-300 p-3 shadow-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/50"
+              />
             </div>
 
             <Button
               variant="brand"
-              type="submit"
               className="w-full py-6"
+              onClick={handleNext}
               disabled={!formData.companyName || !formData.delegationClarity}
             >
-              {isLoading ? 'Creating Account...' : 'Create Account'}
+              Next
             </Button>
           </>
         )
@@ -318,8 +284,9 @@ export function Onboarding({
             <div className="mx-auto h-[300px] w-full">
               <Cal
                 namespace="alignmentcall"
-                calLink="valey/onboarding-call"
-                style={{ width: '100%', height: '100%' }}
+                calLink="team/valey/alignmentcall"
+                style={{ width: '100%', height: '100%', overflow: 'scroll' }}
+                config={{ layout: 'month_view' }}
               />
             </div>
           </div>

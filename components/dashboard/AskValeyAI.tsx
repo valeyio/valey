@@ -22,8 +22,10 @@ export default function AskValeyAI() {
   }
 
   return (
-    <div className="rounded-lg bg-gray-800 p-6 shadow-md">
-      <h3 className="mb-4 text-xl font-semibold text-white">Ask Valey AI</h3>
+    <div className="rounded-lg border bg-card p-6 shadow-md">
+      <h3 className="mb-4 text-xl font-semibold text-card-foreground">
+        Ask Valey AI
+      </h3>
       <form onSubmit={handleAskValey} className="space-y-4">
         <div className="relative">
           <input
@@ -31,7 +33,7 @@ export default function AskValeyAI() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Ask Valey AI anything..."
-            className="w-full rounded-md bg-gray-700 px-4 py-2 text-gray-100 placeholder-gray-400 focus:border-[#FAD92D] focus:outline-none focus:ring-2 focus:ring-[#FAD92D]/50"
+            className="w-full rounded-md bg-input px-4 py-2 text-foreground placeholder-muted-foreground focus:border-[#FAD92D] focus:outline-none focus:ring-2 focus:ring-[#FAD92D]/50"
           />
         </div>
         <button

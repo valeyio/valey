@@ -94,10 +94,10 @@ export default function QuoteCarousel() {
 
   if (isLoading) {
     return (
-      <div className="rounded-lg bg-gray-800 p-6 shadow-md">
+      <div className="rounded-lg border bg-card p-6 shadow-md">
         <div className="h-24 animate-pulse">
-          <div className="h-4 w-3/4 rounded bg-gray-700"></div>
-          <div className="mt-4 h-4 w-1/2 rounded bg-gray-700"></div>
+          <div className="h-4 w-3/4 rounded bg-muted"></div>
+          <div className="mt-4 h-4 w-1/2 rounded bg-muted"></div>
         </div>
       </div>
     )
@@ -105,8 +105,10 @@ export default function QuoteCarousel() {
 
   if (quotes.length === 0) {
     return (
-      <div className="rounded-lg bg-gray-800 p-6 shadow-md">
-        <p className="text-gray-300">No quotes available at the moment.</p>
+      <div className="rounded-lg border bg-card p-6 shadow-md">
+        <p className="text-muted-foreground">
+          No quotes available at the moment.
+        </p>
       </div>
     )
   }
@@ -114,9 +116,9 @@ export default function QuoteCarousel() {
   const currentQuote = quotes[currentQuoteIndex]
 
   return (
-    <div className="min-h-[150px] rounded-lg bg-gray-800 p-6 shadow-md">
+    <div className="min-h-[150px] rounded-lg border bg-card p-6 shadow-md">
       <div className="animate-fade-in">
-        <p className="mb-4 text-lg font-semibold leading-relaxed text-white">
+        <p className="mb-4 text-lg font-semibold leading-relaxed text-card-foreground">
           "{currentQuote.text}"
         </p>
         <p className="text-right text-sm text-[#FAD92D]">
@@ -129,7 +131,7 @@ export default function QuoteCarousel() {
           <span
             key={index}
             className={`inline-block h-1.5 w-1.5 rounded-full ${
-              index === currentQuoteIndex ? 'bg-[#FAD92D]' : 'bg-gray-600'
+              index === currentQuoteIndex ? 'bg-[#FAD92D]' : 'bg-muted'
             }`}
           />
         ))}

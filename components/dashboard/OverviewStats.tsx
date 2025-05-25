@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '@/lib/AuthContext'
-import { CheckSquare, UserPlus, Calendar, Users } from 'lucide-react'
+import { Target, TrendingUp, Calendar, Users } from 'lucide-react'
 
 type StatCardProps = {
   title: string
@@ -11,17 +11,19 @@ type StatCardProps = {
 
 function StatCard({ title, value, icon, description }: StatCardProps) {
   return (
-    <div className="rounded-lg bg-gray-800 p-5 shadow-md">
+    <div className="rounded-lg border bg-card p-5 shadow-md">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-medium text-gray-400">{title}</h3>
-        <div className="rounded-full bg-gray-700 p-2 text-[#FAD92D]">
-          {icon}
-        </div>
+        <h3 className="text-sm font-medium text-muted-foreground">{title}</h3>
+        <div className="rounded-full bg-muted p-2 text-[#FAD92D]">{icon}</div>
       </div>
       <div className="mt-2">
-        <div className="text-2xl font-semibold text-white">{value}</div>
+        <div className="text-2xl font-semibold text-card-foreground">
+          {value}
+        </div>
         {description && (
-          <div className="mt-1 text-xs text-gray-400">{description}</div>
+          <div className="mt-1 text-xs text-muted-foreground">
+            {description}
+          </div>
         )}
       </div>
     </div>
@@ -31,8 +33,8 @@ function StatCard({ title, value, icon, description }: StatCardProps) {
 export default function OverviewStats() {
   const { user } = useAuth()
   const [stats, setStats] = useState({
-    personalTasks: 0,
-    delegatedTasks: 0,
+    activeGoals: 0,
+    monthlyGrowth: '12%',
     nextInvoice: 'No upcoming invoices',
     onlineTeamMembers: 0,
   })
@@ -47,8 +49,8 @@ export default function OverviewStats() {
         // Use mock data instead of Supabase
         setTimeout(() => {
           setStats({
-            personalTasks: 5,
-            delegatedTasks: 3,
+            activeGoals: 3,
+            monthlyGrowth: '12%',
             nextInvoice: new Date(
               Date.now() + 86400000 * 7
             ).toLocaleDateString(), // 7 days from now
@@ -71,10 +73,10 @@ export default function OverviewStats() {
         {[...Array(4)].map((_, i) => (
           <div
             key={i}
-            className="h-24 animate-pulse rounded-lg bg-gray-800 p-5 shadow-md"
+            className="h-24 animate-pulse rounded-lg border bg-card p-5 shadow-md"
           >
-            <div className="h-4 w-1/2 rounded bg-gray-700"></div>
-            <div className="mt-4 h-6 w-1/3 rounded bg-gray-700"></div>
+            <div className="h-4 w-1/2 rounded bg-muted"></div>
+            <div className="mt-4 h-6 w-1/3 rounded bg-muted"></div>
           </div>
         ))}
       </div>
@@ -84,16 +86,16 @@ export default function OverviewStats() {
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       <StatCard
-        title="Personal Tasks"
-        value={stats.personalTasks}
-        icon={<CheckSquare className="h-5 w-5" />}
-        description="Tasks assigned to you"
+        title="Active Goals"
+        value={stats.activeGoals}
+        icon={<Target className="h-5 w-5" />}
+        description="Goals in progress"
       />
       <StatCard
-        title="Delegated Tasks"
-        value={stats.delegatedTasks}
-        icon={<UserPlus className="h-5 w-5" />}
-        description="Tasks assigned to team"
+        title="Monthly Growth"
+        value={stats.monthlyGrowth}
+        icon={<TrendingUp className="h-5 w-5" />}
+        description="Business growth rate"
       />
       <StatCard
         title="Upcoming Invoice"

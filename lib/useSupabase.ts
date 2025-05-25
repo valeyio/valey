@@ -38,7 +38,7 @@ export const useSupabase = () => {
         const { data } = await supabaseClient.auth.getSession()
         setSession(data.session)
         setUser(data.session?.user ?? null)
-        
+
         const {
           data: { subscription },
         } = supabaseClient.auth.onAuthStateChange((_event, session) => {
@@ -47,7 +47,7 @@ export const useSupabase = () => {
         })
 
         setLoading(false)
-        
+
         return () => {
           subscription.unsubscribe()
         }

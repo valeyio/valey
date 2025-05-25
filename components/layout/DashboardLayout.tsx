@@ -32,6 +32,8 @@ const getPageTitle = (pathname: string): string => {
     '/dashboard/team': 'Team',
     '/dashboard/partners': 'Partners',
     '/dashboard/billing': 'Billing',
+    '/dashboard/profile': 'Profile',
+    '/dashboard/settings': 'Settings',
     '/dashboard/help': 'Help Desk',
   }
   return pathMap[pathname] || 'Dashboard'

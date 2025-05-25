@@ -3,6 +3,10 @@
 /.pnp
 .pnp.js
 
+# package manager lockfiles (using npm, so exclude others)
+yarn.lock
+pnpm-lock.yaml
+
 # testing
 /coverage
 

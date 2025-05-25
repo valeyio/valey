@@ -56,6 +56,18 @@ export function NavUser({
     }
   }
 
+  const handleBillingClick = () => {
+    router.push('/dashboard/billing')
+  }
+
+  const handleProfileClick = () => {
+    router.push('/dashboard/profile')
+  }
+
+  const handleSettingsClick = () => {
+    router.push('/dashboard/settings')
+  }
+
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -107,15 +119,15 @@ export function NavUser({
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={handleProfileClick}>
                 <BadgeCheck />
                 Your Profile
               </DropdownMenuItem>
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={handleBillingClick}>
                 <CreditCard />
                 Billing
               </DropdownMenuItem>
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={handleSettingsClick}>
                 <Bell />
                 Settings
               </DropdownMenuItem>

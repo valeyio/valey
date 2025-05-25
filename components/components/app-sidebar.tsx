@@ -6,7 +6,6 @@ import {
   MessageCircle,
   Users,
   Briefcase,
-  CreditCard,
   HelpCircle,
 } from 'lucide-react'
 import Image from 'next/image'
@@ -33,7 +32,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     user: {
       name: firstName,
       email: user?.email || '',
-      avatar: '/images/valey-icon-white.png',
+      avatar: profile?.avatar_url || '/images/valey-icon-white.png',
     },
     navMain: [
       {
@@ -71,12 +70,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         url: '/dashboard/partners',
         icon: Briefcase,
         isActive: router.pathname === '/dashboard/partners',
-      },
-      {
-        title: 'Billing',
-        url: '/dashboard/billing',
-        icon: CreditCard,
-        isActive: router.pathname === '/dashboard/billing',
       },
       {
         title: 'Help Desk',
